@@ -3,6 +3,7 @@ import { StyleSheet, View, FlatList,Text } from 'react-native';
 import { ListItem, Icon } from 'react-native-elements';
 import firebase from 'firebase';
 import MyHeader from '../components/MyHeader';
+import SwipableFlatlist from '../components/SwipableFlatlist';
 
 import db from '../config';
 
@@ -50,7 +51,7 @@ export default class NotificationScreen extends Component{
         <ListItem
           key={index}
           leftElement={<Icon name="cart" type="font-awesome" color ='#696969'/>}
-          title={item.book_name}
+          title={item.item_name}
           titleStyle={{ color: 'black', fontWeight: 'bold' }}
           subtitle={item.message}
           bottomDivider
@@ -74,11 +75,7 @@ export default class NotificationScreen extends Component{
               </View>
             )
             :(
-              <FlatList
-                keyExtractor={this.keyExtractor}
-                data={this.state.allNotifications}
-                renderItem={this.renderItem}
-              />
+              <SwipableFlatlist allNotifications={this.state.allNotifications}/>
             )
           }
         </View>
