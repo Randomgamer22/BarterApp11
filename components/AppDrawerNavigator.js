@@ -4,6 +4,8 @@ import { AppTabNavigator } from './AppTabNavigator'
 import CustomSideBarMenu from './CustomSideBarMenu';
 import SettingScreen from '../screens/SettingScreen'
 import MyBartersScreen from '../screens/MyBartersScreen'
+import MyReceivedItemsScreen from '../screens/MyReceivedItemsScreen';
+import NotificationScreen from '../screens/NotificationScreen';
 
 export const AppDrawerNavigator = createDrawerNavigator({
   Home: {
@@ -11,6 +13,12 @@ export const AppDrawerNavigator = createDrawerNavigator({
   },
   MyBarters: {
     screen: MyBartersScreen
+  },
+  MyReceivedItems: {
+    screen: MyReceivedItemsScreen
+  },
+  Notifications: {
+    screen: NotificationScreen
   },
   Setting: {
     screen: SettingScreen

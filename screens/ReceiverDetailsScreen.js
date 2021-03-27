@@ -9,11 +9,11 @@ export default class ReceiverDetailsScreen extends Component {
     super(props);
     this.state = {
       userId: firebase.auth().currentUser.email,
-      recieverId: this.props.navigation.getParam('details')['userId'],
-      requestId: this.props.navigation.getParam('details')['requestId'],
-      itemName: this.props.navigation.getParam('details')['bookName'],
+      recieverId: this.props.navigation.getParam('details')['user_id'],
+      requestId: this.props.navigation.getParam('details')['request_id'],
+      itemName: this.props.navigation.getParam('details')['book_name'],
       reasonForRequesting: this.props.navigation.getParam('details')[
-        'reasonToRequest'
+        'reason_to_request'
       ],
       recieverName: '',
       recieverContact: '',
@@ -24,7 +24,7 @@ export default class ReceiverDetailsScreen extends Component {
 
   getRecieverDetails() {
     db.collection('users')
-      .where('emailId', '==', this.state.recieverId)
+      .where('username', '==', this.state.recieverId)
       .get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {

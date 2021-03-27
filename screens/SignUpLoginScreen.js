@@ -130,8 +130,8 @@ export default class SignupLoginScreen extends React.Component {
         .createUserWithEmailAndPassword(username, password)
         .then(() => {
           Db.collection("users").add({
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+            first_name: this.state.firstName,
+            last_name: this.state.lastName,
             contact: this.state.contact,
             address: this.state.address,
             username: this.state.username,

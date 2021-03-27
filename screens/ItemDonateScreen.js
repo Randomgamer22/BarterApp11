@@ -42,11 +42,16 @@ export default class ItemDonateScreen extends Component {
         return (
             <ListItem
                 key={i}
-                title={item.book_name}
+                title={item.item_name}
                 subtitle={item.reason_to_request}
                 rightElement={
-                    <TouchableOpacity>
-                        <Text>View Request</Text>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => {
+                            this.props.navigation.navigate("RecieverDetails", { "details": item })
+                        }}
+                    >
+                        <Text style={{color: "#ffffff"}}>View Request</Text>
                     </TouchableOpacity>
                 }
             />
@@ -60,7 +65,7 @@ export default class ItemDonateScreen extends Component {
             <SafeAreaProvider>
                 <MyHeader title="Donate Item" />
                 <FlatList
-                    data={this.state.requestedBooksList}
+                    data={this.state.requestedItemsList}
                     renderItem={this.renderItem}
                     keyExtractor={this.keyExtractor} />
             </SafeAreaProvider>
